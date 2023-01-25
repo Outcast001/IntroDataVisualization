@@ -1,24 +1,12 @@
 """ Notas da segunda etapa - Análise """
 ## - Atualizado ás 18:44. 19 de Janeiro 2023
 
-"""
-with open("grade_notas.csv",'x') as arq:
-    arq.write('''Id,Professor,Disciplina,n1,n2
-1,Rennan C.,Banco de Dados,39,0
-2,Josué Antunes,Análise de sistemas,38,25
-3,Daniel Maia,Desenvolvimento Web,50,35
-4,Juliára,Fundamentos da Administração,30,30
-5,Josué Antunes,Linguagem de Programação,45,44
-6,Daniel Bulhões,Redes de Computadores,32,33
-''')
-"""
-
 import pandas as pd
 import pygal
 
 # Passo 1:  Importar base de dados
 
-tabela = pd.read_csv("grade_notas.csv")
+tabela = pd.read_csv("documents\Datasets\grade_notas.csv")
     
 # Passo 2:  Exibir base de dados
 # Passo 3:  Tratamento de dados
