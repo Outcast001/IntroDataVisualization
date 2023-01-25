@@ -13,7 +13,7 @@ tabela = pd.read_csv("documents\Datasets\grade_notas.csv")
 ##  - Corrigindo problema com espaços nas colunas da tabela
 ##  - Apagando linha 1 - 2° nota vazia
 
-tabela.columns = [str(value).strip() for value in ('Id', 'Professor', 'Disciplina', 'n1', 'n2') ]
+tabela.columns = [str(value).strip() for value in ('Id', 'Professor', 'Disciplina', 'n1', 'n2') ]# Inútil.
 tabela = tabela.drop([0])
 
 # Passo 4:  Análise inicial
@@ -51,7 +51,7 @@ histograma.x_labels = ['Análise S.','Dev. Web','Admin.','L. Programação','Red
 histograma._x_title = "Resultado"
 histograma._y_title = "Frequência dos resultados"
 
-### - Exibindo/Salvando gráfico.
+### - Exibindo e Salvando gráfico.
 
 histograma.add("Notas", notaPorDisciplina['Nota'])
 histograma.render_to_file("gráfico-notas-segundo-módulo.svg")
@@ -73,10 +73,3 @@ Menor nota (Etapa 2): 15 pts;
 Maior nota total: 89
 Menor nota total: 60
 '''
-
-### Note made:
-""" 
-Insight importante:
-    - Há formas simples e outras mais complexas de analisár uma base de dados,
-    o que depende da extensão ou "comprimento" dos dados base de dados.
-"""
