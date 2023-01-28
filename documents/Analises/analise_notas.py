@@ -16,7 +16,7 @@ print("Setup Complete")
 file_path = "documents\Datasets\grade_notas.csv"
 tabela_dados = pd.read_csv(file_path)
     
-# Passo 2:  Exibindo base de dados
+# Passo 2:  Visualizando informações gerais da fonte de dados
 print(tabela_dados.head())
 
 # Passo 3:  Tratamento de dados
@@ -37,9 +37,11 @@ disciplin_notas = pd.DataFrame({
                     'Total':Nota_final})
 
 # Passo 4:  Análise inicial
-
 carga_horaria = sum(tabela_dados.CH) # CH: Carga horária total (até o 2° módulo)
 frequencia = sum(tabela_dados['Freq.']) # Quantas horas de aula o aluno tem no curso
+
+nota_mod1 = disciplin_notas[(disciplin_notas['modulo'] == 1)]
+nota_mod2 = disciplin_notas[(disciplin_notas['modulo'] == 2)]
 
 """  
 Calcula a variação e subtrai por cem (100), obtendo assim o
@@ -47,16 +49,16 @@ percentual de horas que o aluno tem, no curso.
 """
 freq_percent = 100 - ((carga_horaria - frequencia) / frequencia)*100 
 
-media_etp1 = disciplin_notas.n1.mean()
-media_etp2 = disciplin_notas.n2.mean()
+media_modulo_1 = nota_mod1.Total.mean()
+media_modulo_2 = nota_mod2.Total.mean()
 media_global = disciplin_notas.Total.mean()
 
 """ Ao longo do primeiro e segundo módulo """
 print('\nO aluno(a) tem {} horas de curso, o que representa {}% '.format(frequencia, round(freq_percent,2)),end='\b')
 print(' de um total de {} horas\n'.format(carga_horaria))
 
-print("Média das notas da 1° etapa: ", round(media_etp1,2), 'de 50pts')
-print("Média das notas da 2° etapa: ", round(media_etp2,2), 'de 50pts')
+print("Média das notas do 1° módulo: ", round(media_modulo_1,2), 'de 100pts')
+print("Média das notas do 2° módulo: ", round(media_modulo_2,2), 'de 100pts')
 print("Média global das notas: ", round(media_global,2), 'de 100 pontos')
 
 """
@@ -64,7 +66,6 @@ As informações sobre as médias das notas acima podem ser encontradas
 de uma forma mais simples, utilizando o método 'describe()',
 abaixo:
 """
-
 print(disciplin_notas.describe())
 
 #5  Análise completa (Criar e exibir gráfico)
