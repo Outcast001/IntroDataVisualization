@@ -1,5 +1,5 @@
 """
-Análise relativa dos projetos com maior número de estrelas no Github, por linguagem
+Análise relativa dos projetos com maior número de estrelas no Github, por linguagem de programação
 - Projetos analisados por linguagem: Python e JavaScript
 
 OBS: Múltiplos gráficos foram feitos devido à atualização constante
