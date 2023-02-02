@@ -3,7 +3,7 @@
 
   <body>
       <figure>
-        <embed type="image/svg+xml" width="700"
+        <img type="image/svg+xml" width="700"
         src="Most-Starred-JavaScript-Projects-on-Github_2023-02-01.svg" />
       </figure>
   </body>
