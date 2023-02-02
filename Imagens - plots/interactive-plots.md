@@ -1,10 +1,9 @@
-<div align="center">
+<div align="center" class='md-'>
   <h2>Segue abaixo, alguns gráficos sobre o número de projetos python e javascript no Github, por número de estrelas</h2>
 
-  <body>
-      <figure>
-        <img type="image/svg+xml" width="700"
-        src="Most-Starred-JavaScript-Projects-on-Github_2023-02-01.svg" />
-      </figure>
-  </body>
-</div>
+
+<h3>Fontes: 
+
+<a href="https://api.github.com/search/repositories?q=language:python&sort=stars">- Python:</a><br>
+<a href="https://api.github.com/search/repositories?q=language:javascript&sort=stars">- JavaScript:</a>
+</h3>
