@@ -1,8 +1,8 @@
 """ 
-Notas da primeira e segunda etapa - Análise - Curso: Tecnologia da Informação (TI)
+Notas da primeira à terceira etapa - Análise - Curso Técnico em informática (TI)
 IFNMG Campus Pirapora
 """
-# - Atualizado ás 23:45. 27 de janeiro de 2023
+# - Atualizado ás 16:51. 30 de julho de 2023
 
 ## IMPORTS
 import pandas as pd
@@ -13,7 +13,7 @@ import pygal
 print("Setup Complete")
 
 # Passo 1:  Importando base de dados
-file_path = "documents\Datasets\grade_notas.csv"
+file_path = "Datasets\grade_notas.csv"
 tabela_dados = pd.read_csv(file_path)
     
 # Passo 2:  Visualizando informações gerais da fonte de dados
@@ -22,8 +22,8 @@ print(tabela_dados.head())
 # Passo 3:  Tratamento de dados
 
 """ 
-Somando cada uma das notas da primeira e segunda etapa
-- n1 e n2 - por disciplina.
+Somando cada uma das notas da primeira à terceira etapa do curso
+(n1, n2 e n3 - por disciplina).
 """
 
 notas = list(zip(tabela_dados.n1, tabela_dados.n2))
@@ -37,28 +37,31 @@ disciplin_notas = pd.DataFrame({
                     'Total':Nota_final})
 
 # Passo 4:  Análise inicial
-carga_horaria = sum(tabela_dados.CH) # CH: Carga horária total (até o 2° módulo)
+carga_horaria = sum(tabela_dados.CH) # CH: Carga horária total (até o 3° módulo)
 frequencia = sum(tabela_dados['Freq.']) # Quantas horas de aula o aluno tem no curso
 
 nota_mod1 = disciplin_notas[(disciplin_notas['modulo'] == 1)]
 nota_mod2 = disciplin_notas[(disciplin_notas['modulo'] == 2)]
+nota_mod3 = disciplin_notas[(disciplin_notas['modulo'] == 3)]
 
 """  
 Calcula a variação e subtrai por cem (100), obtendo assim o
 percentual de horas que o aluno tem, no curso.
 """
-freq_percent = 100 - ((carga_horaria - frequencia) / frequencia)*100 
+freq_percent = (100 - (((carga_horaria - frequencia) / frequencia)*100 ))
 
 media_modulo_1 = nota_mod1.Total.mean()
 media_modulo_2 = nota_mod2.Total.mean()
+media_modulo_3 = nota_mod3.Total.mean()
 media_global = disciplin_notas.Total.mean()
 
-""" Ao longo do primeiro e segundo módulo """
+""" Ao longo do primeiro ao terceiro módulo... """
 print('\nO aluno(a) tem {} horas de curso, o que representa {}% '.format(frequencia, round(freq_percent,2)),end='\b')
 print(' de um total de {} horas\n'.format(carga_horaria))
 
 print("Média das notas do 1° módulo: ", round(media_modulo_1,2), 'de 100pts')
 print("Média das notas do 2° módulo: ", round(media_modulo_2,2), 'de 100pts')
+print("Média das notas do 3° módulo: ", round(media_modulo_3,2), 'de 100pts')
 print("Média global das notas: ", round(media_global,2), 'de 100 pontos')
 
 """
@@ -74,19 +77,19 @@ print(disciplin_notas.describe())
 ### - Criando Histograma/Gráfico de barras
 
 """ Gráfico de barras interativo da biblioteca 'pygal' """
-histograma = pygal.Bar()
+# histograma = pygal.Bar()
 
-histograma._title = ["Notas das disciplinas do primeiro e segundo módulo do Curso de TI."]
-histograma.x_labels = disciplin_notas.Disciplina
-histograma._x_title = "Resultado"
-histograma._y_title = "Frequência dos resultados"
+# histograma._title = ["Notas das disciplinas do primeiro ao terceiro módulo do Curso de TI."]
+# histograma.x_labels = disciplin_notas.Disciplina
+# histograma._x_title = "Resultado"
+# histograma._y_title = "Frequência dos resultados"
 
 ### - Exibindo e Salvando gráfico.
 
-histograma.add("Notas", disciplin_notas['Total'])
+# histograma.add("Notas", disciplin_notas['Total'])
 
 """ Faz o download do gráfico """
-histograma.render_to_file("gráfico-notas-curso-TI.svg")
+# histograma.render_to_file("gráfico-notas-curso-TI.svg")
 
 """ Gráficos da biblioteca 'Seaborn' - Gráfio de barras"""
 
