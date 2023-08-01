@@ -13,3 +13,11 @@ Id,Disciplina,n1,n2,CH,Freq.,Módulo
 12,Lógica Matemática,31.5,31.5,40,34,1
 13,Sistemas Operacionais,35.5,35.5,80,74,1
 14,Softwares Aplicativos (Ead),32.5,32.5,80,74,1
+15,Empreendedorismo (Ead),45,49,40,40,3
+16,Engenharia de Software,40,48,40,36,3
+17,Gestão Organizacional e Segurança do Trabalho (Ead),30,35.5,60,60,3
+18,Laboratório Redes de Computadores,43.5,33,80,72,3
+19,Portugues Instrumental,49,25,80,66,3
+20,Programaçao Web,50,50,80,66,3
+21,Segurança em Redes de Computadores,44,47,40,36,3
+22,Tópicos Especiais em Informática,49.5,50,80,75,3
